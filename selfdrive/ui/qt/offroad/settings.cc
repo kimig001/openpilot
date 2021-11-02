@@ -261,7 +261,7 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
 
   auto uninstallBtn = new ButtonControl("오픈파일럿 삭제 " + getBrand(), "삭제");
   connect(uninstallBtn, &ButtonControl::clicked, [=]() {
-    if (ConfirmationDialog::confirm("오픈파일럿을 삭하시겠습니까?", this)) {
+    if (ConfirmationDialog::confirm("오픈파일럿을 삭제하시겠습니까?", this)) {
       Params().putBool("DoUninstall", true);
     }
   });
@@ -325,7 +325,7 @@ QWidget * network_panel(QWidget * parent) {
   // SSH key management
   list->addItem(new SshToggle());
   list->addItem(new SshControl());
-  layout->addWidget(horizontal_line());
+  list->addItem(horizontal_line());
   // add
   const char* gitpull = "sh /data/openpilot/gitpull.sh";
   auto gitpullbtn = new ButtonControl("GitPull", "실행");
@@ -336,7 +336,7 @@ QWidget * network_panel(QWidget * parent) {
     }
   });
   list->addItem(gitpullbtn);
-  layout->addWidget(horizontal_line());
+  list->addItem(horizontal_line());
 
   layout->addWidget(list);
   layout->addStretch(1);
@@ -349,9 +349,6 @@ QWidget * network_panel(QWidget * parent) {
 //VIP menu
 VIPPanel::VIPPanel(QWidget* parent) : QWidget(parent) {
   QVBoxLayout *layout = new QVBoxLayout(this);
-  
-  layout->addWidget(new PrebuiltToggle());
-  layout->addWidget(horizontal_line());
   
   layout->addWidget(new LabelControl("UI설정", ""));
   layout->addWidget(new KRDateToggle());
@@ -582,21 +579,27 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
   )");
 
   QList<ParamControl*> toggles;
+  
+  toggles.append(new ParamControl("PutPrebuilt", 
+                                           "Prebuilt 실행 ",
+                                           "Prebuilt 파일을 생성하며 부팅속도를 향상시킵니다.",
+                                            "../assets/offroad/icon_openpilot.png",
+                                            this));
 
   toggles.append(new ParamControl("UseClusterSpeed",
-                                            "Use Cluster Speed",
+                                            "계기판 속도 사용",
                                             "Use cluster speed instead of wheel speed.",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("LongControlEnabled",
-                                            "Enable HKG Long Control",
+                                            "HKG 롱컨트롤 사용",
                                             "warnings: it is beta, be careful!! Openpilot will control the speed of your car",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("MadModeEnabled",
-                                            "Enable HKG MAD mode",
+                                            "HKG MAD 모드 ",
                                             "Openpilot will engage when turn cruise control on",
                                             "../assets/offroad/icon_openpilot.png",
                                             this));

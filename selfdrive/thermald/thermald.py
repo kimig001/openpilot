@@ -431,7 +431,7 @@ def thermald_thread():
     if not os.path.isfile(prebuiltfile) and prebuiltlet:
       os.system("cd /data/openpilot; touch prebuilt")
     elif os.path.isfile(prebuiltfile) and not prebuiltlet:
-      os.system("cd /data/openpilot; rm -f prebuilt")    
+      os.system("cd /data/openpilot; rm -f prebuilt") 
     
     # Offroad power monitoring
     power_monitor.calculate(peripheralState, startup_conditions["ignition"])

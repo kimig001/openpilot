@@ -5,7 +5,7 @@ MIN_STEER_SPEED = 0.3
 
 
 class LatControl:
-  def __init__(self, CP):
+  def __init__(self, CP, CI):
     self.sat_count_rate = 1.0 * DT_CTRL
     self.sat_limit = CP.steerLimitTimer
 
@@ -13,7 +13,7 @@ class LatControl:
     self.sat_count = 0.
 
   def _check_saturation(self, control, limit, CS):
-    saturated = abs(control) == limit
+    saturated = limit - abs(control) < 1e-3
 
     if saturated and CS.vEgo > 10. and not CS.steeringRateLimited and not CS.steeringPressed:
       self.sat_count += self.sat_count_rate
