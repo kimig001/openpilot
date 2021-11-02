@@ -373,6 +373,12 @@ VIPPanel::VIPPanel(QWidget* parent) : QWidget(parent) {
                                             "NDA 카메라 경고를 계기판과 HUD에 끄거나 켭니다.",
                                             "../assets/offroad/icon_shell.png"
                                             ));
+  
+  layout->addWidget(new ParamControl("AutoSet",
+                                            "Cruise auto set",
+                                            "오토크루즈 셋 적용",
+                                            "../assets/offroad/icon_road.png",
+                                            this));
   layout->addWidget(horizontal_line());
 }
 
