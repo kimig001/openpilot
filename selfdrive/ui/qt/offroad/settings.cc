@@ -589,7 +589,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
   toggles.append(new ParamControl("PutPrebuilt", 
                                            "Prebuilt 실행 ",
                                            "Prebuilt 파일을 생성하며 부팅속도를 향상시킵니다.",
-                                            "../assets/offroad/icon_openpilot.png",
+                                            "../assets/offroad/icon_shell.png",
                                             this));
 
   toggles.append(new ParamControl("UseClusterSpeed",
