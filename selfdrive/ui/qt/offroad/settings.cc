@@ -587,7 +587,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
   QList<ParamControl*> toggles;
   
   toggles.append(new ParamControl("PutPrebuilt", 
-                                           "Prebuilt 실행 ",
+                                           "Smart Prebuilt 실행 ",
                                            "Prebuilt 파일을 생성하며 부팅속도를 향상시킵니다.",
                                             "../assets/offroad/icon_shell.png",
                                             this));
