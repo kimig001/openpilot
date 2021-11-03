@@ -405,11 +405,23 @@ void Device::updateBrightness(const UIState &s) {
 
   if (!s.scene.started) {
     clipped_brightness = BACKLIGHT_OFFROAD;
+  } else if (s.scene.scr.autoScreenOff != -2 && s.scene.touched2) { //opkr
+    sleep_time = s.scene.scr.nTime;
+  } else if (s.scene.controls_state.getAlertSize() != cereal::ControlsState::AlertSize::NONE && s.scene.scr.autoScreenOff != -2) {
+    sleep_time = s.scene.scr.nTime;
+  } else if (sleep_time > 0 && s.scene.scr.autoScreenOff != -2) {
+    sleep_time--;
+  } else if (s.scene.started && sleep_time == -1 && s.scene.scr.autoScreenOff != -2) {
+    sleep_time = s.scene.scr.nTime; //opkr
   }
 
   int brightness = brightness_filter.update(clipped_brightness);
   if (!awake) {
     brightness = 0;
+  } else if (s.scene.started && sleep_time == 0 && s.scene.scr.autoScreenOff != -2) { //opkr
+    brightness = s.scene.brightness_off * 0.01 * brightness;
+  } else if( s.scene.scr.brightness ) {
+    brightness = s.scene.scr.brightness * 0.99; //opkr
   }
 
   if (brightness != last_brightness) {
