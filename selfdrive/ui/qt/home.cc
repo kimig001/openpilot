@@ -91,7 +91,15 @@ void HomeWindow::mousePressEvent(QMouseEvent* e) {
   // Handle sidebar collapsing
   if (onroad->isVisible() && (!sidebar->isVisible() || e->x() > sidebar->width())) {
     sidebar->setVisible(!sidebar->isVisible() && !onroad->isMapVisible());
+    QUIState::ui_state.sidebar_view = !QUIState::ui_state.sidebar_view; // opkr
   }
+  
+  QUIState::ui_state.scene.setbtn_count = 0; // opkr
+  QUIState::ui_state.scene.homebtn_count = 0;
+  if (QUIState::ui_state.scene.started && QUIState::ui_state.scene.scr.autoScreenOff != -2) {
+    QUIState::ui_state.scene.touched2 = true;
+    QTimer::singleShot(500, []() { QUIState::ui_state.scene.touched2 = false; });
+  } // opkr
 }
 
 // OffroadHome: the offroad home page
