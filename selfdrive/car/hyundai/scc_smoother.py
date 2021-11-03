@@ -228,14 +228,13 @@ class SccSmoother:
 
     if self.wait_timer > 0:
       self.wait_timer -= 1
-    
     elif (ascc_enabled and not CS.out.cruiseState.standstill) or ascc_auto_set: 장푸
       
       if self.alive_timer == 0:
         if ascc_enabled:  # JangPoo 
           if self.autoset:  # 옵션
             self.btn = self.get_button(CS.cruiseState_speed * self.speed_conv_to_clu)
-        elif ascc_auto_set and clu11_speed < 30:  # JangPoo 
+        elif ascc_auto_set and clu11_speed < 32:  # JangPoo 
           if self.autoset:  # 옵션
             self.btn = Buttons.SET_DECEL  # JangPoo 
         else:
