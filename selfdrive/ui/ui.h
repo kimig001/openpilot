@@ -260,7 +260,8 @@ typedef struct UIState {
   bool show_cgear_ui;
   TouchState touch;
   int lock_on_anim_index;
-
+  //opkr
+  bool sidebar_view;
 } UIState;
 
 
