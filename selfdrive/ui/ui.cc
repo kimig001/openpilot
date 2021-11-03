@@ -270,6 +270,17 @@ static void update_status(UIState *s) {
       s->scene.laneless_mode = std::stoi(Params().get("LanelessMode"));    
       s->wide_camera = Hardware::TICI() ? Params().getBool("EnableWideCamera") : false;
     }
+      //opkr
+      s->scene.scr.autoScreenOff = std::stoi(Params().get("AutoScreenOff")); //opkr
+      if (s->scene.scr.autoScreenOff > 0) {
+        s->scene.scr.nTime = s->scene.scr.autoScreenOff * 60 * UI_FREQ;
+      } else if (s->scene.scr.autoScreenOff == 0) {
+        s->scene.scr.nTime = 30 * UI_FREQ;
+      } else if (s->scene.scr.autoScreenOff == -1) {
+        s->scene.scr.nTime = 15 * UI_FREQ;
+      } else {
+        s->scene.scr.nTime = -1;
+      } //opkr
     // Invisible until we receive a calibration message.
     s->scene.world_objects_visible = false;
   }
