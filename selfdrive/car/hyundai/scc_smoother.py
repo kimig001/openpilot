@@ -228,7 +228,7 @@ class SccSmoother:
 
     if self.wait_timer > 0:
       self.wait_timer -= 1
-    elif (ascc_enabled and not CS.out.cruiseState.standstill) or ascc_auto_set: 장푸
+    elif (ascc_enabled and not CS.out.cruiseState.standstill) or ascc_auto_set: #장푸
       
       if self.alive_timer == 0:
         if ascc_enabled:  # JangPoo 
