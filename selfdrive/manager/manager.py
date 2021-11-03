@@ -59,6 +59,7 @@ def manager_init():
     ("CustomLeadMark", "0"),
     ("IsOpenpilotViewEnabled", "0"),
     ("NewRadarInterface", "0"),
+    ("AutoScreenOff", "0"),
     ("PutPrebuilt", "0"),
     ("NDACamera", "1"),
     ("ShowCgearUI", "1"),
