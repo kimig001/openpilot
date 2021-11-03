@@ -185,7 +185,6 @@ typedef struct UIScene {
   int laneless_mode;
 
   cereal::CarState::Reader car_state;
-  cereal::ControlsState::Reader controls_state;
   cereal::LateralPlan::Reader lateral_plan;
 
   // modelV2
@@ -229,6 +228,7 @@ typedef struct UIScene {
   float brightness_off;
   int setbtn_count = 0;
   int homebtn_count = 0;
+  cereal::ControlsState::Reader controls_state;
   struct _screen
   {
      int  nTime;
