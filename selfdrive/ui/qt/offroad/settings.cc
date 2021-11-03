@@ -353,6 +353,8 @@ VIPPanel::VIPPanel(QWidget* parent) : QWidget(parent) {
   layout->addWidget(new LabelControl("UI설정", ""));
   layout->addWidget(new KRDateToggle());
   layout->addWidget(new KRTimeToggle());
+  layout->addWidget(new BrightnessControl());
+  layout->addWidget(new AutoScreenOff());
   layout->addWidget(new ParamControl("ShowCgearUI",
                                             "주행기어단수 보기",
                                             "기어레버 위치와 기어단수를 볼수 있습니다..",
