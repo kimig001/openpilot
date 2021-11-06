@@ -70,7 +70,7 @@ class CarInterface(CarInterfaceBase):
           #ret.lateralTuning.pid.kdV = [1.]
           #ret.lateralTuning.pid.newKfTuned = True
           
-          ret.steerActuatorDelay = 0.8
+          ret.steerActuatorDelay = 0.08
           ret.steerRateCost = 0.5
           ret.steerLimitTimer = 2.5
           ret.steerRatio = 16.5
