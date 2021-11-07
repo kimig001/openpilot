@@ -258,6 +258,7 @@ typedef struct UIState {
   //
   bool show_debug_ui, custom_lead_mark;
   bool show_cgear_ui;
+  bool show_basicinfo_ui;
   TouchState touch;
   int lock_on_anim_index;
   //opkr

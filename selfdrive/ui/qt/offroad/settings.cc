@@ -360,9 +360,14 @@ VIPPanel::VIPPanel(QWidget* parent) : QWidget(parent) {
                                             "기어레버 위치와 기어단수를 볼수 있습니다..",
                                             "../assets/offroad/icon_shell.png"
                                             ));
+  layout->addWidget(new ParamControl("ShowBasicinfoUI",
+                                            "Ntune 제어 UI 보기",
+                                            "Ntune 제어 정보값을 봅니다....",
+                                            "../assets/offroad/icon_shell.png"
+                                            ));
   layout->addWidget(new ParamControl("ShowDebugUI",
-                                            " UI 정보 보기",
-                                            " UI 정보를 볼수 있습니다.",
+                                            "Debug UI 보기",
+                                            "Debug UI 정보를 볼수 있습니다.",
                                             "../assets/offroad/icon_shell.png",
                                             this));
   

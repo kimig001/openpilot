@@ -858,9 +858,9 @@ static void bb_ui_draw_UI(UIState *s) {
   //if(s->show_debug_ui)
    // bb_ui_draw_measures_right(s, bb_dmr_x, bb_dmr_y, bb_dmr_w);
 #endif
-
-  bb_ui_draw_basic_info(s);
 	
+  if(s->show_basicinfo_ui) 
+    bb_ui_draw_basic_info(s);
   if(s->show_cgear_ui) 
     bb_ui_draw_cgear(s);
   if(s->show_debug_ui)

@@ -228,6 +228,7 @@ std::unordered_map<std::string, uint32_t> keys = {
     {"NewRadarInterface", PERSISTENT},
     {"DisableOpFcw", PERSISTENT},
     {"ShowDebugUI", PERSISTENT},
+    {"ShowBasicinfoUI", PERSISTENT},
     {"CustomLeadMark", PERSISTENT},
     {"NDACamera", PERSISTENT},
     {"ShowCgearUI", PERSISTENT},
